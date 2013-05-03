@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+  <tlibversion>1.3</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>token</shortname>
+	<uri>/eprosun/token</uri>
+	<tag>
+		<name>hidden</name>
+		<tagclass>filter.loophole.tools.TokenHiddenTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		
+		<attribute>
+			<name>uri</name>
+			<required>true</required>
+		</attribute>
+	</tag>	
+	<tag>
+		<name>string</name>
+		<tagclass>filter.loophole.tools.TokenStringTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		
+		<attribute>
+			<name>uri</name>
+			<required>true</required>
+		</attribute>
+	</tag>	
+</taglib>
