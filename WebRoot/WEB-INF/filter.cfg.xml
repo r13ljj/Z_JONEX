@@ -1,0 +1,11 @@
+  <?xml version="1.0" encoding="UTF-8" ?> 
+- <filters>
+- <interceptor>
+  <uri>/dms/ns_qdjm/qdjm_dj_save.jsp</uri> 
+  <method>POST</method> 
+  </interceptor>
+- <interceptor>
+  <uri>/dms/checkLogin.jsp</uri> 
+  <method>POST</method> 
+  </interceptor>
+  </filters>
