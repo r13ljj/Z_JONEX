@@ -16,11 +16,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
 
 import com.jonex.platform.util.StringUtils;
 import com.jonex.platform.util.exception.PlatformException;
-import com.sun.org.apache.xml.internal.security.utils.Base64;
 
 import filter.CSRF.config.Configuration;
 
@@ -375,7 +375,7 @@ public class FileUtils {
                 while((in = inpus.read())!=-1){
                     outputStream.write(in);
                 }
-                content = Base64.encode(outputStream.toByteArray());
+                content = Base64.encodeBase64String(outputStream.toByteArray());
             }catch(Exception e){
                 e.printStackTrace();
                 throw new PlatformException(e);
@@ -395,7 +395,7 @@ public class FileUtils {
      */
     public static void convertBase64StringToFile(String conntent,String filePath)throws Exception{
         try{
-            createFile(Base64.decode(conntent.getBytes()), filePath);
+            createFile(Base64.decodeBase64(conntent.getBytes()), filePath);
         }catch(Exception e){
             e.printStackTrace();
             throw new PlatformException(e);
