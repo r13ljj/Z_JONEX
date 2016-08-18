@@ -7,7 +7,7 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 
-import com.szboanda.platform.util.exception.PlatformException;
+import com.jonex.platform.util.exception.PlatformException;
 
 public class FileLockManager {
 	
@@ -39,6 +39,11 @@ public class FileLockManager {
 			raf = new RandomAccessFile(fileToLock,"rw");
 		} catch (FileNotFoundException e) { 
 			throw new PlatformException("文件锁使用的文件[" + this.filePath + "]不存在!",e);
+		}finally{
+			try {
+				raf.close();
+			} catch (IOException e) {
+			}
 		}
 		
 		FileChannel fc = raf.getChannel();

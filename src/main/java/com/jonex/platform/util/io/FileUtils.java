@@ -18,11 +18,11 @@ import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
+import com.jonex.platform.util.StringUtils;
+import com.jonex.platform.util.exception.PlatformException;
 import com.sun.org.apache.xml.internal.security.utils.Base64;
-import com.szboanda.platform.util.CloseUtils;
-import com.szboanda.platform.util.StringUtils;
-import com.szboanda.platform.util.exception.PlatformException;
-import com.szboanda.platform.util.resources.Configuration;
+
+import filter.CSRF.config.Configuration;
 
 public class FileUtils {
 

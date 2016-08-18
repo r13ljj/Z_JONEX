@@ -6,7 +6,9 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+
 import com.jonex.platform.util.exception.PlatformException;
+import com.jonex.platform.util.io.CloseUtils;
 import com.jonex.platform.util.io.FileUtils;
 
 /**
@@ -14,7 +16,7 @@ import com.jonex.platform.util.io.FileUtils;
  * @author 
  * 2009-3-25
  */
-public class StringUtils extends org.apache.commons.lang.StringUtils {
+public class StringUtils extends org.apache.commons.lang3.StringUtils {
 
     private StringUtils() {
     }
@@ -40,7 +42,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils {
      * @return
      */
     public static boolean isNumeric(String str) {
-    	return (!isEmpty(str))&&(org.apache.commons.lang.StringUtils.isNumeric(str));
+    	return (!isEmpty(str))&&(org.apache.commons.lang3.StringUtils.isNumeric(str));
     }
     
     public static boolean isNotNumeric(String str) {

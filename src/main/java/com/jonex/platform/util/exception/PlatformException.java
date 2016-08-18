@@ -11,6 +11,8 @@ package com.jonex.platform.util.exception;
  */
 public class PlatformException extends RuntimeException {
 
+	private static final long serialVersionUID = -7873679603994797996L;
+	
 	private String code;
 	
 	public String getCode() {
@@ -29,7 +31,7 @@ public class PlatformException extends RuntimeException {
 		super(message);
 	}
 	
-	public PlatformException1(String message, String code) {
+	public PlatformException(String message, String code) {
 		super(message);
 		this.code = code;
 	}
@@ -40,7 +42,6 @@ public class PlatformException extends RuntimeException {
 	
 	public PlatformException(String message, Throwable cause) {
 		super(cause);
-		this.code = code;
 	}
 
 	
@@ -62,7 +63,7 @@ public class PlatformException extends RuntimeException {
 		if(e instanceof RuntimeException){
 			return (RuntimeException)e;
 		}else{
-			return new PlatformException1(e);
+			return new PlatformException(e);
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package com.szboanda.platform.util.io;
+package com.jonex.platform.util.io;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,9 +18,9 @@ public class FileLoader {
 	 * @return
 	 */
 	public static InputStream loadFile(String path){
-		URL url = FileLoader2.class.getResource(path);
+		URL url = FileLoader.class.getResource(path);
 		if(url == null){
-			url = FileLoader2.class.getResource("/" + path);
+			url = FileLoader.class.getResource("/" + path);
 		}
 		if(url != null){
 			try{
@@ -38,7 +38,7 @@ public class FileLoader {
 	 * @param configPath
 	 * @return
 	 */
-	private static InputStream loadFile(ServletContext ctx, String configPath){
+	public static InputStream loadFile(ServletContext ctx, String configPath){
 		ServletContext APPLICATION = ctx;
 		String path = ctx.getRealPath(configPath);
 		InputStream is = null;

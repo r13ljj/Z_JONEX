@@ -40,6 +40,11 @@ public class Configuration
   public List<Interceptor> getConfigs() {
     return this.configs;
   }
+  
+  public static List<String> getPropertyList(String key, String defaultValue, String split){
+	  return null;
+	  
+  }
 
   public void init(String path) throws Exception {
     this.configs = new ArrayList();
