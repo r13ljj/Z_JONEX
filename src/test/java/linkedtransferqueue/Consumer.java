@@ -3,20 +3,24 @@ package linkedtransferqueue;
 /**
  *
  */
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TransferQueue;
 
 public class Consumer implements Runnable {
-    private final TransferQueue<String> queue;
+    private final BlockingQueue<String> queue;
 
-    public Consumer(TransferQueue<String> queue) {
+    public Consumer(BlockingQueue<String> queue) {
         this.queue = queue;
     }
 
     @Override
     public void run() {
         try {
-            System.out.println(" Consumer " + Thread.currentThread().getName()
-                    + queue.take());
+            String msg = "";
+            while((msg = queue.take()) != null){
+                System.out.println(" Consumer " + Thread.currentThread().getName()
+                        + msg);
+            }
         } catch (InterruptedException e) {
         }
     }
