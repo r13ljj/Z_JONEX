@@ -65,17 +65,19 @@ public class Main {
                 Task subTask1 = new Task(start, middle, data);
                 Task subTask2 = new Task(middle, end, data);
                 //join()方法，这将等待任务执行的完成，并且返回任务的结果
-                subTask1.fork();
-                subTask2.fork();
-                subTask1.join();
-                subTask2.join();
+                //subTask1.fork();
+                //subTask2.fork();
+                //subTask1.join();
+                //subTask2.join();
                 invokeAll(subTask1, subTask2);
                 try {
-                    result += subTask1.get();
-                    result += subTask2.get();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
+                    //result += subTask1.get();
+                    //result += subTask2.get();
+                    Long leftResult = subTask1.join();
+                    Long rightResult = subTask2.compute();
+                    result += leftResult;
+                    result += rightResult;
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
