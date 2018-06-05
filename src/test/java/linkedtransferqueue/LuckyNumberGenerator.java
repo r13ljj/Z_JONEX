@@ -27,42 +27,41 @@ public class LuckyNumberGenerator {
             }
         }*/
         LuckyNumberGenerator generator = new LuckyNumberGenerator();
-        generator.testBlockingQueue();
+        generator.testTransferQueue();
+        //generator.testBlockingQueue();
     }
 
     public void testTransferQueue(){
         try {
             TransferQueue<String> queue = new LinkedTransferQueue<String>();
             int count = 1000000;
+            long start = System.currentTimeMillis();
+            Thread consumer = new Thread(new Consumer(queue));
+            //consumer.setDaemon(true);
+            consumer.start();
+            System.out.println("transfer queue count:"+count+" ct:"+(System.currentTimeMillis()-start)+"ms");
             for(int i=0; i<count; i++){
                 queue.transfer("transfer queue"+i);
             }
-            Thread consumer = new Thread(new Consumer(queue));
-            consumer.setDaemon(true);
-            long start = System.currentTimeMillis();
-            consumer.start();
-            System.out.println("transfer queue count:"+count+" ct:"+(System.currentTimeMillis()-start)+"ms");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     public void testBlockingQueue(){
-        try {
+        /*try {
             BlockingQueue<String> queue = new LinkedBlockingQueue<>();
             int count = 1000000;
             for(int i=0; i<count; i++){
                 queue.add("linkedblocking queue"+i);
             }
-            //Thread consumer = new Thread(new Consumer(queue));
-            //consumer.setDaemon(true);
-            //consumer.start();
-            Consumer consumer = new Consumer(queue);
             long start = System.currentTimeMillis();
-            consumer.run();
+            Thread consumer = new Thread(new Consumer(queue));
+            //consumer.setDaemon(true);
+            consumer.start();
             System.out.println("linkedblocking queue count:"+count+" ct:"+(System.currentTimeMillis()-start)+"ms");
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 }

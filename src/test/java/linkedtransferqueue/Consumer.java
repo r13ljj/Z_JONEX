@@ -7,9 +7,9 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TransferQueue;
 
 public class Consumer implements Runnable {
-    private final BlockingQueue<String> queue;
+    private final TransferQueue<String> queue;
 
-    public Consumer(BlockingQueue<String> queue) {
+    public Consumer(TransferQueue<String> queue) {
         this.queue = queue;
     }
 
@@ -17,9 +17,12 @@ public class Consumer implements Runnable {
     public void run() {
         try {
             String msg = "";
+            long start = 0;
             while((msg = queue.take()) != null){
-                System.out.println(" Consumer " + Thread.currentThread().getName()
-                        + msg);
+                if (start == 0) {
+                    start = System.currentTimeMillis();
+                }
+                System.out.println(" Consumer " + Thread.currentThread().getName() +":"+ msg+" ct:"+(System.currentTimeMillis()-start)+"ms");
             }
         } catch (InterruptedException e) {
         }
