@@ -35,14 +35,15 @@ public class LuckyNumberGenerator {
         try {
             TransferQueue<String> queue = new LinkedTransferQueue<String>();
             int count = 1000000;
+            for(int i=0; i<count; i++){
+                //queue.transfer("transfer queue"+i);
+                queue.put("transfer queue"+i);
+            }
             long start = System.currentTimeMillis();
             Thread consumer = new Thread(new Consumer(queue));
             //consumer.setDaemon(true);
             consumer.start();
             System.out.println("transfer queue count:"+count+" ct:"+(System.currentTimeMillis()-start)+"ms");
-            for(int i=0; i<count; i++){
-                queue.transfer("transfer queue"+i);
-            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

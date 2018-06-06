@@ -3,7 +3,6 @@ package linkedtransferqueue;
 /**
  *
  */
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TransferQueue;
 
 public class Consumer implements Runnable {
@@ -17,14 +16,11 @@ public class Consumer implements Runnable {
     public void run() {
         try {
             String msg = "";
-            long start = 0;
             while((msg = queue.take()) != null){
-                if (start == 0) {
-                    start = System.currentTimeMillis();
-                }
-                System.out.println(" Consumer " + Thread.currentThread().getName() +":"+ msg+" ct:"+(System.currentTimeMillis()-start)+"ms");
+                System.out.println(" Consumer " + Thread.currentThread().getName() +":"+ msg);
             }
         } catch (InterruptedException e) {
         }
     }
+
 }
