@@ -46,7 +46,7 @@ public class CASApp {
 
         @Override
         public void run() {
-            long local = 0;
+            long local = hit;
             while (UNSAFE.compareAndSwapLong(null, hitAddress, local-1, local-2)){
                 if (startTime == 0){
                     startTime = System.currentTimeMillis();
@@ -74,7 +74,7 @@ public class CASApp {
 
         @Override
         public void run() {
-            long local = 0;
+            long local = hit;
             while (UNSAFE.compareAndSwapLong(null, hitAddress, local-1, local-2)){
                 if (startTime == 0){
                     startTime = System.currentTimeMillis();
