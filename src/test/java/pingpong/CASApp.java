@@ -65,7 +65,13 @@ public class CASApp {
                     if (UNSAFE.compareAndSwapLong(objectBase, hitAddress, local, --local)){
                         System.out.println("ping:"+local);
                     }
-                }
+                }/*else{
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }*/
             }
         }
     }
@@ -99,7 +105,13 @@ public class CASApp {
                     if (UNSAFE.compareAndSwapLong(objectBase, hitAddress, local, --local)){
                         System.out.println("pong:"+local);
                     }
-                }
+                }/*else{
+                    try {
+                        Thread.sleep(1);
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                }*/
             }
         }
     }
