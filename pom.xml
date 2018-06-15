@@ -16,6 +16,7 @@
   	<solr.version>6.2.1</solr.version>
   	<disruptor.version>3.3.6</disruptor.version>
   	<akka.version>2.4.14</akka.version>
+	  <JAVA_HOME>C:\\Program Files\\Java\\jdk1.8.0_77</JAVA_HOME>
   </properties>
   
   <dependencies>
