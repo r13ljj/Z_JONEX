@@ -61,6 +61,15 @@ public class Bitmap {
         Bitmap bitmap = new Bitmap(Integer.MAX_VALUE);
         bitmap.set(i);
         System.out.println(Integer.toBinaryString(bitmap.test(i)));
+        System.out.println("======================");
+        int a = 5;
+        System.out.println(Integer.toBinaryString(a));
+        System.out.println(Integer.toBinaryString(~a));
+        a = a^1;
+        System.out.println(Integer.toBinaryString(a));
+        byte b = 0x05;
+        byte BITS = 0x08;
+        System.out.println(1 << (b & BITS));
     }
 
 }
