@@ -70,6 +70,8 @@ public class Bitmap {
         byte b = 0x05;
         byte BITS = 0x08;
         System.out.println(1 << (b & BITS));
+        System.out.println("======================");
+        System.out.println((1024 << 0x02));
     }
 
 }
