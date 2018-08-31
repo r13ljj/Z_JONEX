@@ -22,7 +22,9 @@ package bitmap;
  */
 public class Bitmap {
 
+    //int -> 4byte / 32bit
     private final static int BITSPERWORD = 32;
+    //bit: 11111=31 右移5位
     private final static int SHIFT = 5;
     private final static byte MASK = 0x1F;
 
