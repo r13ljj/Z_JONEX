@@ -87,6 +87,16 @@ public class CompletableFutureTest {
      * thenApplyAsync(Function<? super T,? extends U> fn)
      * thenApplyAsync(Function<? super T,? extends U> fn, Executor executor)
      *
+     * thenCompose：针对返回值为CompletableFuture的函数；
+     * thenApply：针对返回值为其他类型的函数；
+     * thenAccept：针对返回值为void的函数
+     *
+     * thenCombine 方法只是将两个CF联合起来的方法之一，其他的方法包括：
+     * thenAcceptBoth：与thenCombine类似，但是它接受一个返回值为void的函数；
+     * runAfterBoth：接受一个 Runnable，在两个CF都完成后执行；
+     * applyToEither：接受一个一元函数（unary function），会将首先完成的CF的结果提供给它；
+     * acceptEither：与applyToEither类似，接受一个一元函数，但是结果为void；
+     * runAfterEither：接受一个Runnable，在其中一个CF完成后就执行。
      *
      *
      * @throws Exception
